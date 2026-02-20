@@ -26,7 +26,7 @@
 
     <div class="flex flex-col gap-2">
         {#each keywords.slice(0, 3) as keyword}
-            <h5 class="text-gray-800 text-base truncate">
+            <h5 class="text-gray-800 truncate">
                 {keyword}
             </h5>
         {/each}
