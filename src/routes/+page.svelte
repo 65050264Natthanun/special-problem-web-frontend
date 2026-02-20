@@ -5,6 +5,39 @@
 	import Button from '../components/Button.svelte';
 
 	let searchTerm: string = "";
+	let cardsPopular = [
+		{
+			category: "สหกิจศึกษา",
+			titleThai: "ชื่อโปรเจคภาษาไทย",
+			titleEnglish: "ชื่อโปรเจคภาษาอังกฤษ",
+			keywords: ["2", "1", "คำสำคัญ", "คำสำคัญ", "คำสำคัญ"]
+		},
+		{
+			category: "ปัญหาพิเศษ",
+			titleThai: "ชื่อโปรเจคภาษาไทยยยยยย",
+			titleEnglish: "ชื่อโปรเจคภาษาอังกฤษuuuuuuu",
+			keywords: ["คำสำคัญ", "3", "คำสำคัญ", "คำสำคัญ", "คำสำคัญ"]
+		},
+		{
+			category: "ปัญหาพิเศษ",
+			titleThai: "ชื่อโปรเจคภาษาไทยlllllllllllllllllllllllllllllllllllllllll",
+			titleEnglish: "ชื่อโปรเจคภาษาอังกฤษ",
+			keywords: ["4", "คำสำคัญ", "คำสำคัญ", "คำสำคัญ", "คำสำคัญ"]
+		},
+		{
+			category: "ปัญหาพิเศษ",
+			titleThai: "ชื่อโปรเจคภาษาไทย",
+			titleEnglish: "ชื่อโปรเจคภาษาอังกฤษ",
+			keywords: ["คำสำคัญ", "5", "คำสำคัญ", "คำสำคัญ", "คำสำคัญ"]
+		},
+		{
+			category: "ปัญหาพิเศษ",
+			titleThai: "ชื่อโปรเจคภาษาไทย",
+			titleEnglish: "ชื่อโปรเจคภาษาอังกฤษ",
+			keywords: ["คำสำคัญ", "5", "คำสำคัญ", "คำสำคัญ", "คำสำคัญ"]
+		}
+	];
+
 
 	// ฟังก์ชันรองรับการค้นหา
 	async function handleSearch(event: CustomEvent<string>): Promise<void> {
@@ -31,10 +64,25 @@
 		<SearchBar bind:value={searchTerm} on:search={handleSearch} />
 	</div>
 	
-	<div class="w-full bg-white gap-12 px-4 sm:px-6 md:px-10 lg:px-16 py-10 flex flex-col">
+	<div class="w-full bg-white gap-10 px-4 sm:px-6 md:px-10 lg:px-16 py-10 flex flex-col">
 		<h3 class="text-black">ปัญหาพิเศษที่กำลังเป็นที่สนใจ</h3>
-		<CardPopular />
+		<div class="flex flex-wrap gap-4 justify-between">
+			{#each cardsPopular.slice(0, 5) as cardPop}
+				<CardPopular 
+					category={cardPop.category}
+					titleThai={cardPop.titleThai}
+					titleEnglish={cardPop.titleEnglish}
+					keywords={cardPop.keywords}
+				/>
+        	{/each}
+		</div>
 	</div>
 
+	<div class="w-full bg-orange-700 gap-10 px-4 sm:px-6 md:px-10 lg:px-16 py-10 flex flex-col">
+		<h3 class="text-white">ค้นหาโดยคณะ</h3>
+		<div class="flex flex-wrap gap-4 justify-between">
+
+		</div>
+	</div>
 
 </main>
